@@ -1,0 +1,69 @@
+# Auto detect text files and perform LF normalization
+*               text=auto
+
+# Files should be normalized
+.bashrc         text eol=lf
+.clang-format   text eol=lf
+.clang-tidy     text eol=lf
+.gitattributes  text eol=lf
+.gitconfig      text eol=lf
+.gitignore      text eol=lf
+.screenrc       text eol=lf
+.vimrc          text eol=lf
+.zsh_history    text eol=lf
+.zshrc          text eol=lf
+*.cmake         text eol=lf
+*.conf          text eol=lf
+*.cpp           text eol=lf diff=cpp
+*.env           text eol=lf
+*.h             text eol=lf diff=cpp
+*.hpp           text eol=lf diff=cpp
+*.html          text eol=lf
+*.js            text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+*.py            text eol=lf
+*.rs            text eol=lf
+*.rst           text eol=lf
+*.sh            text eol=lf
+*.svg           text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.txt           text eol=lf
+*.vim           text eol=lf
+*.xml           text eol=lf
+*.yml           text eol=lf
+Dockerfile      text eol=lf
+LICENSE         text eol=lf
+README          text eol=lf
+
+# Binary
+*.7z        binary
+*.fla       binary
+*.flv       binary
+*.gif       binary
+*.gz        binary
+*.ico       binary
+*.jpeg      binary
+*.jpg       binary
+*.mov       binary
+*.mp3       binary
+*.mp4       binary
+*.png       binary
+*.swf       binary
+*.tar.gz    binary
+*.ttf       binary
+*.vsdx      binary
+*.zip       binary
+
+# Documents
+*.DOC  diff=astextplain
+*.DOCX diff=astextplain
+*.DOT  diff=astextplain
+*.PDF  diff=astextplain
+*.RTF  diff=astextplain
+*.doc  diff=astextplain
+*.docx diff=astextplain
+*.dot  diff=astextplain
+*.pdf  diff=astextplain
+*.rtf  diff=astextplain
