@@ -136,7 +136,7 @@ mod tests {
         assert!(!s.get_bit(4));
 
         s.set_bit(2, false);
-        assert!(s.get_bit(2));
+        assert!(!s.get_bit(2));
     }
 
     #[test]
