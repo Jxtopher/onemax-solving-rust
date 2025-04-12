@@ -1,25 +1,17 @@
 // $env:RUST_LOG="DEBUG"
 // $env:RUSTFLAGS="$RUSTFLAGS -A dead_code" cargo build
-mod algorithm;
-mod args;
-mod factory;
-mod globals;
-mod heuristics;
-mod mutation_operator;
-mod solution;
-mod solver;
-
-use algorithm::Algorithm;
-use args::Args;
-use factory::factory;
-use globals::initialize_globals;
-use heuristics::FirstImprovement;
-use mutation_operator::Bitflip;
-use mutation_operator::Kbit;
 
 use clap::Parser;
 use log::info;
-use solution::Solution;
+
+use onemax::algorithm::Algorithm;
+use onemax::args::Args;
+use onemax::factory::factory;
+use onemax::globals::initialize_globals;
+use onemax::heuristics::FirstImprovement;
+use onemax::mutation_operator::Bitflip;
+use onemax::mutation_operator::Kbit;
+use onemax::solution::Solution;
 
 fn main() {
     env_logger::init();

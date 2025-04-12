@@ -1,0 +1,15 @@
+enum EnumToggle {
+    TOGGLE1,
+    TOGGLE2,
+    COUNT,
+}
+
+mod tests {
+    use super::*;
+
+    #[test]
+    fn toggle_test() {
+        let xx = EnumToggle::TOGGLE1;
+        println!("{}", xx as i64);
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "Solver": {
+        "FirstImprovement": {
+            "rounds": 50,
+            "Kbit": {
+                "k": 4
+            }
+        }
+    }
+}

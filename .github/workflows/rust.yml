@@ -3,7 +3,7 @@ name: Rust
 on:
   push:
     branches: [ "main" ]
-    tags:        
+    tags:
       - '*'
   pull_request:
     branches: [ "main" ]
@@ -32,13 +32,8 @@ jobs:
       run: |
         echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-    - name: Check the formatting
-      run: cargo fmt --check
-
-    - name: Run Clippy
-      run: cargo clippy --all-targets --all-features -- -Dwarnings
-      env:
-        RUSTFLAGS: -A unused
+    - name: pre-commit
+      run: pre-commit run --all-files
 
     - name: Build
       run: cargo build --verbose
@@ -49,7 +44,7 @@ jobs:
     - name: Code coverage
       run: |
         cargo install cargo-llvm-cov
-        rustup component add llvm-tools-preview --toolchain stable-x86_64-unknown-linux-gnu
+        # rustup component add llvm-tools-preview --toolchain stable-x86_64-unknown-linux-gnu
         cargo llvm-cov
 
     # - name: Install Miri

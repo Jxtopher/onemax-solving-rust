@@ -1,0 +1,67 @@
+use crate::algorithm;
+use crate::algorithm::Nil;
+use crate::heuristics;
+use crate::solver;
+
+use algorithm::Algorithm;
+use heuristics::FirstImprovement;
+use serde_json::Value;
+use solver::Solver;
+
+fn analyze_json<T: Algorithm>(value: &Value, depth: usize, algo: &mut T) {
+    match value {
+        Value::Object(map) => {
+            for (key, val) in map {
+                println!("{:indent$}{}:", "", key, indent = depth * 2);
+
+                analyze_json(val, depth + 1, algo);
+                if key == "FirstImprovement" {
+                    let mut fi = FirstImprovement {
+                        operator: Box::new(Nil {}),
+                        rounds: 5,
+                    };
+                }
+            }
+        }
+        Value::Array(arr) => {
+            for (i, val) in arr.iter().enumerate() {
+                println!("{:indent$}[{}]:", "", i, indent = depth * 2);
+                analyze_json(val, depth + 1, algo);
+            }
+        }
+        _ => {
+            println!("- {:indent$}{:?}", "", value, indent = depth * 2);
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::{algorithm::Nil, solver::Solver};
+
+    use super::*;
+
+    #[test]
+    fn analyze_json_test() {
+        let data = r#"
+        {
+            "Solver": {
+                "FirstImprovement": {
+                    "rounds": 50,
+                    "Kbit": {
+                        "k": 4
+                    }
+                }
+            }
+        }"#;
+
+        let mut solver = Solver {
+            metaheuristic: Box::new(Nil {}),
+        };
+        let v: Value = serde_json::from_str(data).expect("Unable to parse JSON");
+
+        analyze_json(&v["Solver"], 0, &mut solver);
+        println!("test");
+        println!("{}", v);
+    }
+}
