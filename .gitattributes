@@ -23,7 +23,7 @@
 *.json          text eol=lf
 *.md            text eol=lf
 *.py            text eol=lf
-*.rs            text eol=lf
+*.rs            text eol=lf diff=rust
 *.rst           text eol=lf
 *.sh            text eol=lf
 *.svg           text eol=lf
@@ -33,6 +33,7 @@
 *.vim           text eol=lf
 *.xml           text eol=lf
 *.yml           text eol=lf
+Cargo.lock      text eol=lf linguist-generated=false
 Dockerfile      text eol=lf
 LICENSE         text eol=lf
 README          text eol=lf
