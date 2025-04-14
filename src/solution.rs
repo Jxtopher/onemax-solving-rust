@@ -39,7 +39,6 @@ impl Solution {
         }
     }
     pub fn get_bit(&self, index: usize) -> bool {
-        //self.bit_vec.get(index).map_or(false, |bit| *bit)
         self.bit_vec.get(index).is_some_and(|bit| *bit)
     }
     pub fn get_is_valid(&self) -> bool {
@@ -84,7 +83,6 @@ impl Solution {
     }
 }
 
-// Implement the Display trait for Car
 impl fmt::Display for Solution {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{} ", self.fitness)?;

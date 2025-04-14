@@ -19,7 +19,6 @@ pub fn criterion_benchmark(c: &mut Criterion) {
                     operator: Box::new(bitflip),
                 };
 
-                // let start = Instant::now();
                 black_box(first_improvement.apply(&mut solution));
             });
         });
